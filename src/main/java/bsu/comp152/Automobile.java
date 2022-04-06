@@ -43,13 +43,19 @@ public class Automobile extends Vehicle {
      * If there isn't such a constructor, we get a compile-time error.
      */
     public Automobile(String make, String model, int year,
-                      int numSeats, boolean isSUV){
+                      int numSeats, boolean isSUV) {
         super(make, model, year, 4);
         this.numSeats = numSeats;
         this.isSUV = isSUV;
     }
 
-    public Automobile(String make, String model, int year){
+    /*
+     * We can write additional constructors
+     * (do constructor overloading) if the
+     * constructors have different signatures
+     * (different numbers or types of parameters).
+     */
+    public Automobile(String make, String model, int year) {
         super(make, model, year, 4);
         numSeats = 5;
         isSUV = false;
@@ -63,11 +69,29 @@ public class Automobile extends Vehicle {
         return isSUV;
     }
 
+    /**
+     * Method to override the toString method inherited from Vehicle.
+     *
+     * To override a method, the new method in the subclass must have
+     * the same name, number and types of parameters, and return type.
+     *
+     * This constraint is different from method overloading.
+     *
+     * Use @Override to have Java tell you if you accidentally don't use
+     * the same name, number and types of parameters, and return type
+     * as the inherited method.
+     *
+     * @return
+     *
+     */
     @Override
     public String toString() {
-        return "Automobile{" +
-                "numSeats=" + numSeats +
-                ", isSUV=" + isSUV +
-                '}';
+        return String.format("Automobile{%s %s (numSeats=%d)} ",
+                getMake(), getModel(), numSeats);
+        // Remember not to try to illegally access
+        // inherited private fields, e.g., do getMake()
+        // rather than make.
     }
+
 }
+

@@ -19,4 +19,4 @@ test {
     useJUnitPlatform()
 }
 
-mainClassNmae = 'bsu.comp152.VehicleDemo'
+mainClassName = 'bsu.comp152.VehicleDemo'
